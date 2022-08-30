@@ -16,22 +16,15 @@ from pathlib import Path
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+DEBUG = True
 
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
-
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.getenv('SECRET_KEY')
-
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.getenv('DEBUG')
-
-ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS')
+SECRET_KEY = "django-insecure-6*ssdh*p64pvp_+o)r$79u_xoh4dnrfz)7p&m!@09pmtf$u-q8"
+DJANGO_ALLOWED_HOSTS = []
 
 
 # Application definition
 
-INSTALLED_APPS = [
+BASE_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -39,8 +32,15 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 ]
+OWN_APPS = [
+    "leads"
+]
+OTHER_APPS = [
+]
+INSTALLED_APPS = BASE_APPS + OWN_APPS+OTHER_APPS
 
 MIDDLEWARE = [
+    "kolo.middleware.KoloMiddleware",
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -69,8 +69,6 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'crm.wsgi.application'
-
-
 
 
 # Password validation

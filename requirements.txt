@@ -1,1 +1,5 @@
-Django>=4.1<4.2
+Django>=4.1,<4.2              # https://www.djangoproject.com/
+psycopg2-binary>=2.9,<2.10
+pillow>=9.2,<9.3
+kolo>=1.8,<1.9
+Pillow>=9.2,<9.3

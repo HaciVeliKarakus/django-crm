@@ -1,5 +1,5 @@
 # pull official base image(latest debian release)
-FROM python:3.10.2-slim-bullseye
+FROM python:3.9-slim
 
 # set work directory
 WORKDIR /code
